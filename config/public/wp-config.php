@@ -20,20 +20,20 @@ t/heroku_fbb786beb37065b?reconnect=true"));
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define("heroku_fbb786beb37065b", trim($url["path"], "/"));
-// define("DB_NAME", "heroku_4eed1f5663e035f");
+//define("DB_NAME", trim($url["path"], "/"));
+define("DB_NAME", "heroku_fbb786beb37065b");
 
 /** MySQL database username */
-define("bd0f1b21830cf6", trim($url["user"]));
-// define("DB_USER", "b7cfc877a785ae");
+//define("DB_USER", trim($url["user"]));
+define("DB_USER", "bd0f1b21830cf6");
 
 /** MySQL database password */
-define("dc7a8152", trim($url["pass"]));
-// define("DB_PASSWORD", "db3717c2");
+//define("DB_PASSWORD", trim($url["pass"]));
+define("DB_PASSWORD", "dc7a8152");
 
 /** MySQL hostname */
-define("DB_HOST", trim($url["host"]));
-// define("DB_HOST", "us-cdbr-east-03.cleardb.com");
+//define("DB_HOST", trim($url["host"]));
+define("DB_HOST", "us-cdbr-east-05.cleardb.net");
 
 /** MySQL database port  */
 // define("DB_PORT", trim($url["port"]));
