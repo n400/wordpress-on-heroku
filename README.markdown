@@ -82,6 +82,67 @@ Open your new Wordpress site in a web browser.
 $ heroku apps:open
 ```
 
+Trouble? Configure ~/config/public/wp-config.php. 
+
+```
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define("DB_NAME", trim($url["path"], "/"));
+// define("DB_NAME", "heroku_4eed1f5663e035f");
+
+/** MySQL database username */
+define("DB_USER", trim($url["user"]));
+// define("DB_USER", "b7cfc877a785ae");
+
+/** MySQL database password */
+define("DB_PASSWORD", trim($url["pass"]));
+// define("DB_PASSWORD", "db3717c2");
+
+/** MySQL hostname */
+define("DB_HOST", trim($url["host"]));
+// define("DB_HOST", "us-cdbr-east-03.cleardb.com");
+```
+
+
+To get your config vars via command line:
+```bash
+$ heroku config
+```
+
+To get your config vars manually
+1. Visit your heroku dashboard>apps>your wordpress on heroku app>add-ons>cleardb.
+2. Copy database name into "heroku_4eed1f5663e035f" in wp-config.php. uncomment line and comment prev line.
+3. Click on the database name. go to endpoint information. Copy username and password into wp-config.php in the same way. 
+4. You should now have something like:
+
+```
+$url = parse_url(getenv("mysql://bd0f1b21830cf6:dc7a8152@us-cdbr-east-05.cleardb.ne
+t/heroku_fbb786beb37065b?reconnect=true"));
+
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+//define("DB_NAME", trim($url["path"], "/"));
+define("DB_NAME", "heroku_4eed1f5663e035f");
+
+/** MySQL database username */
+//define("DB_USER", trim($url["user"]));
+define("DB_USER", "b7cfc877a785ae");
+
+/** MySQL database password */
+//define("DB_PASSWORD", trim($url["pass"]));
+define("DB_PASSWORD", "db3717c2");
+
+/** MySQL hostname */
+//define("DB_HOST", trim($url["host"]));
+define("DB_HOST", "us-cdbr-east-03.cleardb.com");
+```
+
+
+for more on heroku cleardb, see https://devcenter.heroku.com/articles/cleardb
+
+
 > Happy? Add your site to the growing [list of Wordpress sites runnning on Heroku](https://github.com/mchung/heroku-buildpack-wordpress/wiki/Sites-running-Wordpress-on-Heroku).
 
 ## Overview

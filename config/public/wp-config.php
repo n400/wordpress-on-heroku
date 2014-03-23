@@ -15,8 +15,7 @@
  */
 
 
-$url = parse_url(getenv("mysql://bd0f1b21830cf6:dc7a8152@us-cdbr-east-05.cleardb.ne
-t/heroku_fbb786beb37065b?reconnect=true"));
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
