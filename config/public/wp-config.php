@@ -14,7 +14,6 @@
  * @package WordPress
  */
 
-
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 // ** MySQL settings - You can get this info from your web host ** //

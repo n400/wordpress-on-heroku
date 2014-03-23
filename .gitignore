@@ -1,1 +1,1 @@
-*.config
+config/public/wp-config.php
