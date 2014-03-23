@@ -44,11 +44,11 @@ Let's clone the repository for a new blog, 99catfacts.com
 $ git clone git://github.com/your_name/wordpress-on-heroku.git 99catfacts.com
 ```
 
-Create Wordpress on Heroku.
+Create Wordpress on Heroku. Fork https://github.com/mchung/heroku-buildpack-wordpress.git
 ```bash
 $ cd 99catfacts.com
 $ heroku create -s cedar
-$ heroku config:add BUILDPACK_URL=https://github.com/mchung/heroku-buildpack-wordpress.git
+$ heroku config:add BUILDPACK_URL=https://github.com/your-user-name/heroku-buildpack-wordpress.git
 ```
 
 > Don't have the Heroku Toolbelt installed? Follow these [quickstart instructions](https://devcenter.heroku.com/articles/quickstart). Takes about 2 minutes.
@@ -81,7 +81,25 @@ Open your new Wordpress site in a web browser.
 $ heroku apps:open
 ```
 
-###Database Trouble? Try configuring ~/config/public/wp-config.php. 
+### wp-config.php
+
+Go to ~/config/public/wp-config.php. Generate new salts at https://api.wordpress.org/secret-key/1.1/salt/ and replace:
+
+```
+define('AUTH_KEY',         'put your unique phrase here');
+define('SECURE_AUTH_KEY',  'put your unique phrase here');
+define('LOGGED_IN_KEY',    'put your unique phrase here');
+define('NONCE_KEY',        'put your unique phrase here');
+define('AUTH_SALT',        'put your unique phrase here');
+define('SECURE_AUTH_SALT', 'put your unique phrase here');
+define('LOGGED_IN_SALT',   'put your unique phrase here');
+define('NONCE_SALT',       'put your unique phrase here');
+```
+For more, see http://codex.wordpress.org/Editing_wp-config.php#Default_wp-config-sample.php in WordPress codex
+
+###Database Trouble?
+
+Try configuring ~/config/public/wp-config.php. 
 
 ```
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
