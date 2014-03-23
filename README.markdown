@@ -138,9 +138,35 @@ define("DB_PASSWORD", "db3717c2");
 define("DB_HOST", "us-cdbr-east-03.cleardb.com");
 ```
 
+5. git push heroku master, and try loading app again.
 
-for more on heroku cleardb, see https://devcenter.heroku.com/articles/cleardb
+For more on heroku cleardb, see https://devcenter.heroku.com/articles/cleardb
 
+### .gitignore
+
+Configure a .gitignore file to ignore wp-config.php and whatever else:
+
+1. Add .gitignore file to root
+
+```bash
+$ touch .gitignore
+```
+remove cahed versions of files to ignore.
+
+```bash
+$ git rem --cached wp-config.php
+```
+
+
+
+
+
+
+
+
+
+
+-----------------
 
 > Happy? Add your site to the growing [list of Wordpress sites runnning on Heroku](https://github.com/mchung/heroku-buildpack-wordpress/wiki/Sites-running-Wordpress-on-Heroku).
 
