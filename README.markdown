@@ -54,11 +54,10 @@ $ heroku config:add BUILDPACK_URL=https://github.com/mchung/heroku-buildpack-wor
 > Don't have the Heroku Toolbelt installed? Follow these [quickstart instructions](https://devcenter.heroku.com/articles/quickstart). Takes about 2 minutes.
 
 
-Rename Heroku App.
+If necessary, rename Heroku App.
 ```bash
 $ heroku apps:rename whatever-you-are-calling-your-app
 ```
-
 
 Deploy your Wordpress site to Heroku.
 ```bash
@@ -82,7 +81,7 @@ Open your new Wordpress site in a web browser.
 $ heroku apps:open
 ```
 
-Trouble? Configure ~/config/public/wp-config.php. 
+###Database Trouble? Try configuring ~/config/public/wp-config.php. 
 
 ```
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -105,17 +104,17 @@ define("DB_HOST", trim($url["host"]));
 // define("DB_HOST", "us-cdbr-east-03.cleardb.com");
 ```
 
-
 To get your config vars via command line:
 ```bash
 $ heroku config
 ```
 
-To get your config vars manually
-1. Visit your heroku dashboard>apps>your wordpress on heroku app>add-ons>cleardb.
-2. Copy database name into "heroku_4eed1f5663e035f" in wp-config.php. uncomment line and comment prev line.
-3. Click on the database name. go to endpoint information. Copy username and password into wp-config.php in the same way. 
-4. You should now have something like:
+>To get your config vars manually, visit your heroku dashboard>apps>[your wordpress on heroku app]>add-ons>cleardb>endpoint information.
+
+*Copy database name into "heroku_4eed1f5663e035f" in wp-config.php. Uncomment line and comment prev line.
+*Copy username and password into wp-config.php in the same way. 
+
+You should now have something like:
 
 ```
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -138,7 +137,12 @@ define("DB_PASSWORD", "db3717c2");
 define("DB_HOST", "us-cdbr-east-03.cleardb.com");
 ```
 
-5. git push heroku master, and try loading app again.
+```bash
+$ git push heroku master
+...
+...
+$ heroku apps:open
+```
 
 For more on heroku cleardb, see https://devcenter.heroku.com/articles/cleardb
 
@@ -146,12 +150,12 @@ For more on heroku cleardb, see https://devcenter.heroku.com/articles/cleardb
 
 Configure a .gitignore file to ignore wp-config.php and whatever else:
 
-1. Add .gitignore file to root
+Add .gitignore file to root
 
 ```bash
 $ touch .gitignore
 ```
-remove cahed versions of files to ignore.
+remove cached versions of files to ignore.
 
 ```bash
 $ git rem --cached wp-config.php
