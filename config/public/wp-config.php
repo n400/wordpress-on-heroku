@@ -15,19 +15,20 @@
  */
 
 
-$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$url = parse_url(getenv("mysql://bd0f1b21830cf6:dc7a8152@us-cdbr-east-05.cleardb.ne
+t/heroku_fbb786beb37065b?reconnect=true"));
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define("DB_NAME", trim($url["path"], "/"));
+define("heroku_fbb786beb37065b", trim($url["path"], "/"));
 // define("DB_NAME", "heroku_4eed1f5663e035f");
 
 /** MySQL database username */
-define("DB_USER", trim($url["user"]));
+define("bd0f1b21830cf6", trim($url["user"]));
 // define("DB_USER", "b7cfc877a785ae");
 
 /** MySQL database password */
-define("DB_PASSWORD", trim($url["pass"]));
+define("dc7a8152", trim($url["pass"]));
 // define("DB_PASSWORD", "db3717c2");
 
 /** MySQL hostname */
